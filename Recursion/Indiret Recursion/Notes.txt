@@ -1,0 +1,43 @@
+Indirect recursions
+
+    - More than one function, calling each other in a circle fashion
+    - First fun calls 2nd, 2nd calls 3rd, 3rd calls first
+
+    - A calls B
+    - B calls C
+    - C calls A 
+
+void A(int n){
+    if(n>0){
+        printf("%d ", n);
+        B(n-1)
+    }
+}
+
+void B(int n){
+    if(n > 1){
+        printf("%d ", n);
+        A(n/2)
+    }
+}
+
+funA(20)
+  /     \
+20      funB(19)
+        /     \
+       19     funA(9)
+             /     \ 
+            9       funB(8)
+                    /     \
+                   8       funA(4)
+                          /     \
+                         4      funB(3)
+                                /     \
+                               3     funA(1)
+                                     /     \
+                                    1       funB(0)
+                                              |
+                                              0
+
+Output:
+    20 19 9 8 4 3 1

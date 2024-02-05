@@ -1,0 +1,13 @@
+If the first statement inside the recursive function is the recursive call 
+
+Example:
+    void fun(int n){
+        if(n > 0){
+            fun(n-1);
+
+            //operations
+        }
+    }
+
+    - Function doesn't do any process during calling time, only returning time 
+    - Can't really convert to a loop, but can

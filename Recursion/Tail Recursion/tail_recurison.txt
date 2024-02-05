@@ -1,0 +1,31 @@
+Types of recursion
+    - Tail
+    - Head
+    - Tree
+    - Indirect
+    - Nested
+
+Tail Recursion
+    void fun(int n){
+        if(n > 0){
+            printf("%d", n);
+            fun(n-1);
+        }
+    }
+
+    - A function is tail recursive if the call to itself is the last operation to do in the function
+        - Every operation is done at calling time and nothing is done during rewinding time 
+
+    - what if we had fun(n-1) + n => not tail recursion since it will do the operation "+ n" at rewind time 
+
+    - Tail recursion can be converted to a while loop (Or any loop I believe)
+
+    - Big O is the same, order of n => O(n) 
+
+    - Space taken by the recursion is 4 activation stacks => O(n)
+        - While the loop is O(1) => thus more efficent in terms of space
+
+    - If you want to write a tail recursion, best to change it to a loop to be more efficent
+        - This is not true for all types of recursion
+        - Some compilers will reduce tail recursion to a loop
+    

@@ -1,0 +1,51 @@
+What is linear recursion?
+    - Calling itself only one time
+    
+What is tree recursion?
+    - Where it calls itself more than once
+
+
+Example of Tree recursion
+
+void fun(int n){
+    if(n > 0){
+        printf("%d", n);
+        fun(n-1);
+        fun(n-1);
+    }
+}
+
+Tracing Tree Recursion
+
+    3 Steps:
+        print
+        fun(n-1)
+        second fun(n-1)
+
+                 fun(3)
+               /   |    \
+              3  fun(2)  _ => fun(2)    right side is left blank since done on returning 
+                /  |    \                   => is returning time
+               2  fun(1) _ => fun(1)    right side is left blank since done on returning
+                /  |    \                   => is returning time
+               1 fun(0)  _ => fun(0)    right side is left blank since done on returning
+                   |           |             => is returning time
+                   0           0
+
+
+                Note: For every second fun() call, it does the whole 3 steps again.
+                Output: 3211211
+
+Time Comp for tree recursion
+
+1 + 2 + 4 + 8 = 15 calls
+
+this is 2^(0) + 2^(1) + 2^(2) + 2^(3) = 15
+
+so it will be 2^(n+1) - 1
+
+so O(2^(n) - 1) => O(2^(n))
+
+Space comp?
+    O(n+1) when n was 3, we had a space complex of 4, thus O(n+1)
+

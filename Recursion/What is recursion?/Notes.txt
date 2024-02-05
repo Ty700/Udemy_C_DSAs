@@ -1,0 +1,61 @@
+Topics Covered
+    - What is recursion
+    - Examples
+    - Tracing recursion
+    - Stacked used in recursion
+    - Recursence Relation
+
+Tracing Recursion 
+
+void fun(x){
+    if(x > 0){
+        printf("%d");
+        fun(x - 1);
+    }
+}
+
+int main(){
+    fun(3);
+}
+
+Trace a recursive function with a tree
+
+fun(3) - fun(3) will ne be completed until fun(2) is finished
+   / \ 
+  3  fun(2) - fun(2) will not be completed until fun(1) is finished
+      / \
+     2   fun(1) - fun(1) will not be completed until fun(0) is finished
+         / \
+        1   fun(0) - fun(0) finishes since 0 is not > 0
+              |
+              X - Exits fun(0) causing an unwind.
+        
+Output: 321
+
+Left branch is done first.
+
+There is two phases of a recursive function, action before recursive call, and an action returning from call, during unwind.
+
+void fun2(x){
+    if(x > 0){
+        fun(x - 1);
+        printf("%d", x);
+    }
+}
+
+    - fun2 will print on the return, while fun prints on calling time
+
+General Form for recursion:
+
+void fun(int n){
+    if(n > 0){
+        //Calling - Ascending
+        fun(n-1);
+        //Descending - Returning
+    }
+}
+
+Isn't this just a loop? Yes. But the difference is that loops only have a calling phase.
+
+Each function call has it's on stack allocation for the local variables.
+    -
